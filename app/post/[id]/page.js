@@ -1,12 +1,16 @@
 'use client';
 
+import blogPosts from '@/data/blogData.json';
+
 function PostPage({ params }) {
-    const slug = params.slug;
+    const id = params.id;
+    const post = blogPosts.find((post) => post.id === id);
 
     return (
         <main>
-            <h1>Blog post: {slug}</h1>
-            <p>This is the content of the blog post.</p>
+            <h1>{post.title}</h1>
+            <p>{post.content}</p>
+            <p>Published on {post.date}</p>
         </main>
     );
 }
